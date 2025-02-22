@@ -1,0 +1,10 @@
+#!/bin/sh
+MAVEN_VERSION=3.8.6
+MVNW_HOME=$HOME/.m2/wrapper/dists/apache-maven-$MAVEN_VERSION-bin/$(uname -s | tr '[:upper:]' '[:lower:]')-$(uname -m)/maven-wrapper-*-bin
+if [ ! -d "$MVNW_HOME" ]; then
+  echo "Maven wrapper not found. Please run './mvnw' to download Maven."
+  exit 1
+fi
+
+# Execute Maven with the provided arguments
+exec "$MVNW_HOME"/mvn "$@"
